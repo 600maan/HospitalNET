@@ -30,9 +30,9 @@ Note : Each patient will be uniquely identified by their SSN
 7. IBM Blockchain Platform Extension for VS Code (1.0.31)
 
 ## Client Application
-***hospitalnet-api*** is a NodeJS REST API Server to interact with the Hyperledger Fabric based blockchain network. It uses [Hyperledger Fabric SDK for Node.js version 1.4 ](https://hyperledger.github.io/fabric-sdk-node/) and TypeScript
+***[hospitalnet-api](./hospitalnet-api/README.md)*** is a NodeJS REST API Server to interact with the Hyperledger Fabric based blockchain network. It uses [Hyperledger Fabric SDK for Node.js version 1.4 ](https://hyperledger.github.io/fabric-sdk-node/) and TypeScript
 
 
 ## Smart Contract
-***hospitalnet-contract*** is the Smart Contract which facilitates the create, read and update operations of patient's Medical Records on blockchain. It also emits events for medical records create and update operations under topic createMedicalrecord and updateMedicalRecord
+***[hospitalnet-contract](./hospitalnet-contract/README.md)*** is the Smart Contract which facilitates the create, read and update operations of patient's Medical Records on blockchain. It also emits events for medical records create and update operations under topic createMedicalrecord and updateMedicalRecord
 
