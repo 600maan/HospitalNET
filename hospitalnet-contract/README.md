@@ -1,5 +1,5 @@
 ## hospitalnet-contract
-***hospitalnet-contract*** is the Smart Contract which facilitates the create, read and update operations of patient's Medical Records on blockchain. It also emits events for medical records create and update operations under topic createMedicalrecord and updateMedicalRecord
+***hospitalnet-contract*** is the Smart Contract which facilitates the create, read and update operations of patient's medical records on blockchain. It also emits events for medical records create and update operations under topic createMedicalrecord and updateMedicalRecord
 
 ## Requirement's
 1. Visual Studio Code (1.38) 
@@ -7,5 +7,15 @@
 
 #### Follow up the steps to configure the IBM Blockchain Platform Extension for VS Code
 - [Dependency Installation for IBM Blockchain Platform Extension](https://github.com/IBM-Blockchain/blockchain-vscode-extension/blob/master/README.md#dependency-installation)
+
+## Smart Contract's 
+1. **medicalRecordExists**
+    - Check if the medical record for a patient exists in blockchain 
+2. **createMedicalRecord**
+    - Create a medical record for new patients 
+3. **getMedicalRecord**
+    - Retrive the entire medical history of existing patients 
+4. **updateMedicalRecord**
+    - Update the medical record of patient
 
 
