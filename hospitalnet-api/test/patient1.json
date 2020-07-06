@@ -1,0 +1,12 @@
+{
+    "patient_information": {
+        "name": "",
+        "gender": ""
+    },
+    "problems": ["problem1", "problem2"],
+    "medications": ["medication1", "medication2"],
+    "directives": ["directive1", "directive2"],
+    "review_of_systems": ["review1", "review2"],
+    "vital_signs": ["sign1", "sign2"],
+    "physical_exam": ["metric1", "metric2"]
+}

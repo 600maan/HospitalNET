@@ -1,0 +1,393 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "HospitalNET API",
+        "version": "1.0.0"
+    },
+    "servers": [{
+        "url": "http://localhost:5001/v1/"
+    }],
+    "components": {
+        "securitySchemes": {
+            "BearerToken": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": [{
+        "BearerToken": []
+    }],
+    "tags": [{
+            "name": "Medical Record",
+            "description": "Create, Read and Update Medical Records "
+        },
+        {
+            "name": "User",
+            "description": "User Registration and Login"
+        }
+    ],
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "user-register",
+                "summary": "Register user",
+                "description": "returns the Bearer Token",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "confirm-password": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    }
+                                },
+                                "required": [
+                                    "username",
+                                    "password",
+                                    "confirm-password",
+                                    "email"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "display_name": {
+                                                    "type": "string"
+                                                },
+                                                "token": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "user-login",
+                "summary": "Login user",
+                "description": "returns the Bearer Token",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "username",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A JSON array of user names",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "display_name": {
+                                                    "type": "string"
+                                                },
+                                                "token": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/medicalrecord/create/": {
+            "post": {
+                "tags": [
+                    "Medical Record"
+                ],
+                "operationId": "create-medical-record",
+                "summary": "Create Medical Record",
+                "security": [{
+                    "BearerToken": []
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "patientID": {
+                                        "type": "string"
+                                    },
+                                    "medicalRecords": {
+                                        "type": "object"
+                                    }
+                                },
+                                "required": [
+                                    "patientID",
+                                    "medicalRecords"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "createAsset": {
+                                        "value": {
+                                            "status": true,
+                                            "data": "Assest Created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "invalidToken": {
+                                        "value": "{\n   \"status\": false,\n   \"message\": \"jwt expired\"\n}\n"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/medicalrecord/query/": {
+            "post": {
+                "tags": [
+                    "Medical Record"
+                ],
+                "operationId": "query-mediacl-record",
+                "summary": "Query latest Medical Record",
+                "security": [{
+                    "BearerToken": []
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "patientID": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "patientID"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "queryAsset": {
+                                        "value": {
+                                            "status": true,
+                                            "data": {
+                                                "value": "{\"patient_information\":{\"name\":\"updated\",\"gender\":\"updated\"},\"problems\":[\"problem1\",\"problem2\"],\"medications\":[\"medication1\",\"medication2\"],\"directives\":[\"directive1\",\"directive2\"],\"review_of_systems\":[\"review1\",\"review2\"],\"vital_signs\":[\"sign1\",\"sign2\"],\"physical_exam\":[\"metric1\",\"metric2\"]}"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "invalidToken": {
+                                        "value": "{\n   \"status\": false,\n   \"message\": \"jwt expired\"\n}\n"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/medicalrecord/update/": {
+            "post": {
+                "tags": [
+                    "Medical Record"
+                ],
+                "operationId": "update-medical-record",
+                "summary": "Update Medical Record",
+                "security": [{
+                    "BearerToken": []
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "patientID": {
+                                        "type": "integer"
+                                    },
+                                    "medicalRecords": {
+                                        "type": "object"
+                                    }
+                                },
+                                "required": [
+                                    "patientID",
+                                    "medicalRecords"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "updateAsset": {
+                                        "value": {
+                                            "status": true,
+                                            "data": {
+                                                "type": "Buffer",
+                                                "data": []
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "invalidToken": {
+                                        "value": "{\n   \"status\": false,\n   \"message\": \"jwt expired\"\n}\n"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
