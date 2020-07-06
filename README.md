@@ -17,7 +17,7 @@ Note : Each patient will be uniquely identified by their SSN
 
 ## System Architecture Diagram
 
-![Alt text](./assests/System-Component-Diagram-HospitalNET.svg)
+![Alt text](./docs/System-Component-Diagram-HospitalNET.svg)
 
 
 ## Requirement
@@ -29,38 +29,10 @@ Note : Each patient will be uniquely identified by their SSN
 6. Visual Studio Code (1.38) 
 7. IBM Blockchain Platform Extension for VS Code (1.0.31)
 
-#### Installing Docker/DockerCompose
-- [Install Docker](https://docs.docker.com/install/)
-- [Install Docker Compose](https://docs.docker.com/compose/install/)
+#### Client Application
+***hospitalnet-api*** is a NodeJS REST API Server to interact with the Hyperledger Fabric based blockchain network. It uses [Hyperledger Fabric SDK for Node.js version 1.4 ](https://hyperledger.github.io/fabric-sdk-node/) and TypeScript
 
 
-#### Set up MongoDB
-- Execute below docker commands to start MongoDB Container
-```shell script
-docker pull mongo 
-docker run --name mongodb -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret -d -p 27017:27017 mongo
-```
+#### Smart Contract
+***hospitalnet-contract*** is the Smart Contract which facilitates the create, read and update operations of patient's Medical Records on blockchain. It also emits events for medical records create and update operations under topic createMedicalrecord and updateMedicalRecord
 
-#### Set Environment variables
-- Copy `.env.example` to `.env` and update `.env` as per your configuration
-
-```shell script
-$ cp .env.example .env
-```
-
-####  Install Dependencies
-```shell script
-$ npm install
-```
-
-####  Run Unit Test
-```shell script
-$ npm run test
-```
-#### Run in Development mode 
-```shell script
-$ npm run startdev
-```
-
-#### Swagger Documentation 
-- [Swagger](http://localhost:5001/v1/api-docs/)
