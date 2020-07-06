@@ -34,5 +34,5 @@ Note : Each patient will be uniquely identified by their SSN
 
 
 ## Smart Contract
-***[hospitalnet-contract](./hospitalnet-contract/README.md)*** is the Smart Contract which facilitates the create, read and update operations of patient's Medical Records on blockchain. It also emits events for medical records create and update operations under topic createMedicalrecord and updateMedicalRecord
+***[hospitalnet-contract](./hospitalnet-contract/README.md)*** is the smart contract of HospitalNET which facilitates the create, read and update operations of patient's medical records on blockchain.
 
