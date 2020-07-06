@@ -16,6 +16,6 @@
 3. **getMedicalRecord**
     - Retrive the entire medical history of existing patients 
 4. **updateMedicalRecord**
-    - Update the medical record of patient
+    - Append the new medical records of patient to the existing medical records
 
 
