@@ -40,7 +40,7 @@
         "@types/passport-local": "1.0.33",
         "@types/sqlite3": "",
         "@types/swagger-ui-express": "4.1.2",
-        "axios": "0.19.2",
+        "axios": "1.6.0",
         "bcrypt": "5.0.0",
         "body-parser": "1.19.0",
         "chai": "4.2.0",
